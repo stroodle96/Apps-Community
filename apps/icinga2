@@ -15,8 +15,8 @@
       set_fact:
         pgrole: 'icinga2'
         intport: '80'
-        extport: '5980'
-        image: 'jordan/icinga2:latest'
+        extport: '5080'
+        image: 'jordan/icinga2'
 
     # CORE (MANDATORY) ############################################################
     - name: 'Including cron job'
