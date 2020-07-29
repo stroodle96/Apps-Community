@@ -14,8 +14,8 @@
     - name: 'Set Known Facts'
       set_fact:
         pgrole: 'icinga2'
-        intport: '80'
-        extport: '5080'
+        intport: '5665'
+        extport: '5665'
         image: 'jordan/icinga2'
 
     # CORE (MANDATORY) ############################################################
