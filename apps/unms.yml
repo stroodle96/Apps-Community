@@ -16,7 +16,7 @@
         intport: '80'
         extport: '8666'
         intport2: '443'
-        extport2: '4444'      
+        extport2: '4445'      
         intport3: '2055'
         extport3: '2055'
         image: 'nico640/docker-unms'
