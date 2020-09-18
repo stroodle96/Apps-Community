@@ -16,7 +16,7 @@
         intport: '80'
         extport: '8666'
         intport2: '443'
-        extport2: '4444/udp'      
+        extport2: '4444'      
         intport3: '2055/udp'
         extport3: '2055/udp'
         image: ' nico640/docker-unms:latest'
@@ -29,26 +29,25 @@
     - name: 'Adding Traefik'
       set_fact:
         pg_labels:
+          traefik.frontend.auth.forward.address: '{{gauth}}'
           traefik.enable: 'true'
-          traefik.tags: 'frontend'
-          traefik.frontend.passHostHeader: 'true'
-          traefik.backend: '{{pgrole}}'
-          traefik.admin.frontend.rule: 'Host:{{pgrole}}.{{domain.stdout}}{{tldset}}{{cname}}'
-          traefik.admin.port: '{{intport5}}'
-          traefik.admin.protocol: 'https'
+          traefik.port: '{{intport2}}'
+          traefik.frontend.rule: 'Host:{{pgrole}}.{{domain.stdout}}{{tldset}}{{cname}}'
+          traefik.frontend.headers.SSLHost: '{{domain.stdout}}'
           traefik.frontend.headers.SSLRedirect: 'true'
+          traefik.frontend.headers.STSIncludeSubdomains: 'true'
+          traefik.frontend.headers.STSPreload: 'true'
           traefik.frontend.headers.STSSeconds: '315360000'
           traefik.frontend.headers.browserXSSFilter: 'true'
           traefik.frontend.headers.contentTypeNosniff: 'true'
+          traefik.frontend.headers.customResponseHeaders: 'X-Robots-Tag:noindex,nofollow,nosnippet,noarchive,notranslate,noimageindex'
           traefik.frontend.headers.forceSTSHeader: 'true'
-          traefik.frontend.headers.SSLHost: '{{domain.stdout}}'
-          traefik.frontend.headers.STSIncludeSubdomains: 'true'
-          traefik.frontend.headers.STSPreload: 'true'
 
     - name: 'Setting PG Volumes'
       set_fact:
         pg_volumes:
           - '/opt/appdata/{{pgrole}}:/config'
+          - '/var/run/docker.sock:/var/run/docker.sock'
           - '/etc/localtime:/etc/localtime:ro'
 
     - name: 'Setting PG ENV'
