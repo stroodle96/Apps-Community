@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Title:      PGBlitz (Reference Title File)
-# Author(s):  Admin9705
+# Author(s):  Admin9705, Stroodle96
 # URL:        https://pgblitz.com - http://github.pgblitz.com
 # GNU:        General Public License v3.0
 ################################################################################
@@ -12,20 +12,12 @@
     # FACTS #######################################################################
     - name: 'Set Known Facts'
       set_fact:
-        pgrole: 'unifi'
+        pgrole: 'unms'
         intport: '3478/udp'
         extport: '3478'
-        intport2: '10001/udp'
-        extport2: '10001'
-        intport3: '8080/tcp'
-        extport3: '8103'
-        intport4: '8081/tcp'
-        extport4: '8081'
-        intport5: '8443/tcp'
-        extport5: '8443'
-        intport6: '8880/tcp'
-        extport6: '8880'
-        image: 'linuxserver/unifi-controller:latest'
+        intport2: '2055/udp'
+        extport2: '2055/udp'
+        image: ' nico640/docker-unms:latest'
 
     # CORE (MANDATORY) ############################################################
     - name: 'Including cron job'
