@@ -19,7 +19,7 @@
         extport2: '4444'      
         intport3: '2055'
         extport3: '2055'
-        image: ' nico640/docker-unms:latest'
+        image: ' nico640/docker-unms'
 
     # CORE (MANDATORY) ############################################################
     - name: 'Including cron job'
