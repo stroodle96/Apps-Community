@@ -13,10 +13,12 @@
     - name: 'Set Known Facts'
       set_fact:
         pgrole: 'unms'
-        intport: '3478/udp'
-        extport: '3478'
-        intport2: '2055/udp'
-        extport2: '2055/udp'
+        intport: '80'
+        extport: '8666'
+        intport2: '443'
+        extport2: '4444/udp'      
+        intport3: '2055/udp'
+        extport3: '2055/udp'
         image: ' nico640/docker-unms:latest'
 
     # CORE (MANDATORY) ############################################################
@@ -65,9 +67,6 @@
           - '{{extport}}:{{intport}}'
           - '{{extport2}}:{{intport2}}'
           - '{{extport3}}:{{intport3}}'
-          - '{{extport4}}:{{intport4}}'
-          - '{{extport5}}:{{intport5}}'
-          - '{{extport6}}:{{intport6}}'
         volumes: '{{pg_volumes}}'
         env: '{{pg_env}}'
         restart_policy: always
