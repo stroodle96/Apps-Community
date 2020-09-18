@@ -17,8 +17,8 @@
         extport: '8666'
         intport2: '443'
         extport2: '4444'      
-        intport3: '2055/udp'
-        extport3: '2055/udp'
+        intport3: '2055'
+        extport3: '2055
         image: ' nico640/docker-unms:latest'
 
     # CORE (MANDATORY) ############################################################
