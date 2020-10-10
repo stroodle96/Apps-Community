@@ -14,7 +14,7 @@
     - name: 'Set Known Facts'
       set_fact:
         pgrole: 'factorio'
-        intport: '34197'
+        intport: '34197/udp'
         extport: '34197'
         image: 'factoriotools/factorio'
 
