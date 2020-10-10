@@ -37,7 +37,7 @@
         pg_volumes:
           - '{{path.stdout}}:{{path.stdout}}'
           - '/etc/localtime:/etc/localtime:ro'
-          - '/opt/appdata/{{pgrole}}:/factorio
+          - '/opt/appdata/{{pgrole}}:/factorio'
 
     - name: 'Setting PG ENV'
       set_fact:
