@@ -42,13 +42,18 @@
     - name: 'Setting PG Volumes'
       set_fact:
         pg_volumes:
-          - '/opt/appdata/{{pgrole}}:/var/lib/mysql'
+#          - '/opt/appdata/{{pgrole}}:/var/lib/mysql'
           - '/etc/localtime:/etc/localtime:ro'
 
     - name: 'Setting PG ENV'
       set_fact:
         pg_env:
-          MYSQL_ROOT_PASSWORD: plexguide
+          DB_TYPE: mariadb
+          DB_HOST: mariadb
+          DB_PORT: 6603
+          DB_USER: root
+          DB_PASS: plexguide
+          DB_NAME: mariadb
 
     # MAIN DEPLOYMENT ##############################################################
 
