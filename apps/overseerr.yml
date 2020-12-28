@@ -52,7 +52,7 @@
         pg_env:
           PUID: '1000'
           PGID: '1000'
-          TZ: 'Asia/Tokyo'
+          TZ: 'America/New_York'
           WIDTH: '1280'
           HEIGHT: '720'
           LOG_LEVEL: 'info'
